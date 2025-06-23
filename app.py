@@ -3,16 +3,16 @@ from flask_cors import CORS
 import requests
 import os
 
-@app.route('/', methods=['GET'])
-def health():
-    return 'OK', 200
-
 app = Flask(__name__)
 CORS(app)
 
 OPENCELLID_URL = "https://us1.unwiredlabs.com/v2/process.php"
 API_TOKEN = "pk.7dab36660f5c40b48a186d5cacc70785"
 
+@app.route('/', methods=['GET'])
+def health():
+    return 'OK', 200
+    
 @app.route('/locate', methods=['POST'])
 def locate():
     try:
